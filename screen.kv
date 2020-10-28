@@ -1,0 +1,63 @@
+<MainWindow>
+    name: "main"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: (300,83)
+            source: 'agest.png'
+    title: 'MainW'
+    id: test1
+    container: container
+    label_wid: my_custom_label
+
+    RelativeLayout:
+        pos: self.pos
+        size: root.size
+        id:container
+
+        TextInput:
+            id: first_input_id2
+            hint_text: 'IP: '
+            pos_hint: {'center_x':0.5, 'center_y':0.3}
+            size_hint: 0.3, 0.05
+            multiline: False
+
+        Label:
+            text: root.label_text
+            pos_hint: {'center_x':0.5, 'center_y':0.6}
+            id:my_custom_label
+
+        Button:
+            text: "Connect"
+            size_hint: 0.1, 0.1
+            pos_hint: {'center_x':0.5, 'center_y':0.2}
+            on_release:
+                root.update_info()
+        Button:
+            text: "Open"
+            size_hint: 0.07, 0.07
+            pos_hint: {'center_x':0.45, 'center_y':0.4}
+            on_release:
+                root.butondan_gelen(True)
+        Button:
+            text: "Close"
+            size_hint: 0.07, 0.07
+            pos_hint: {'center_x':0.55, 'center_y':0.4}
+            on_release:
+                root.butondan_gelen(False)
+
+        Label:
+            text: root.first_read_label_text
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+            id:read_label_first
+
+        Label:
+            text: root.second_read_label_text
+            pos_hint: {'center_x':0.55, 'center_y':0.5}
+            id:read_label_second
+        Image:
+            id: image_source
+            source: root.image_source
+            size_hint: 0.03,0.04
+            pos_hint: {'center_x':0.5, 'center_y':0.55}
+
